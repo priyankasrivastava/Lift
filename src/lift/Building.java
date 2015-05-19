@@ -151,18 +151,16 @@ public class Building {
 		for ( Elevator e : elevators) {
 			contextmatrix[e.getCurrentFloor()+basement][e.getId()-1]=1;
 			
-			System.out.println( "Elevator #" + e.getId() + " is in  Floor#" + e.getCurrentFloor() );
-			
 		}
 
 		for(int row=i-1;row>=0;row--){
 			for(int col=0;col<j;col++){
 				if(contextmatrix[row][col]==0){
-					System.out.print("@"+" ");
+					System.out.print("!"+" ");
 				
 				}
 				else{
-					System.out.print("*"+" ");
+					System.out.print("^"+" ");
 					
 				}
 				

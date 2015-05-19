@@ -11,7 +11,6 @@ public class Starter {
    private  static ElevatorPanel panel=new ElevatorPanel();
 	public static void main(String[] args)
 	{
-	
 		building.getContextUserInput();		
 		initializeBuilding();
 		building.showCurrentStatus();
@@ -23,17 +22,22 @@ public class Starter {
 		}
 		int src=userInput.get(0);
 		int dest=userInput.get(1);
+		
 		Elevator nextElevator = building.getNextElevator(src, dest);
 		System.out.println("Elevator #" + nextElevator.getId() + "  is availble for you...");
-		System.out.println("Moving to your Destination....... ......");
+		System.out.println();
+		System.out.println("You are requested to step inside the elevator !!!");
+		System.out.println();
+		System.out.println("Now moving to your Destination");
+		System.out.println("........  ....  ..........................");
 		building.moveElevator(nextElevator, src, dest);
 		System.out.println("Elevator " + nextElevator.getId() + "has reached to floor " + dest);
-		building.showCurrentStatus();
-	    
+		System.out.println();
+		System.out.println("You are requested to step out !!!");
+		System.out.println();
+		building.showCurrentStatus();    
 	}
 	}
-	
-	
 	public static void initializeBuilding()
 	{
 		Random ra=new Random();
@@ -48,14 +52,8 @@ public class Starter {
 			
 		}
 		
-		
-		
-     
-		
 		}
 		
 	}
-	
-	
 	
 }

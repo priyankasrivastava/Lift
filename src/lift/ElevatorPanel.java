@@ -14,25 +14,33 @@ public class ElevatorPanel {
 		 
 		 int s=getSource();
 		  int d=getDest(); 
-		 System.out.println("Source is"+s +""+"Destination is"+d);
-		list.add(s);
-		list.add(d);
-		 
-		 return list;
-		
+			  list.add(s);
+			  list.add(d);
+			  return list;
 	 }
+	 /**
+	  * 
+	  * @return source floor for the elevator
+	  */
 	 public int getSource(){
 		 
 		 Building building=Starter.building;
 		 
 		 Scanner in = new Scanner(System.in);
 		 System.out.println("Where are you:");
-		int so=in.nextInt();
+		 if(in.hasNextInt()){
+			 int so=in.nextInt(); 
+		
 		if(-1*building.getBasement()<=so && so<building.getFloor())
 		{
 			 source=so;
 			System.out.println("-------------------------------");
 		}
+		else{
+			System.out.println("Invalid floor number you Entered !!!");
+			getSource();
+		}
+		 }
 		else{
 			System.out.println("Invalid floor number you Entered !!!");
 			getSource();
@@ -45,10 +53,16 @@ public class ElevatorPanel {
 		 
 		 Scanner in = new Scanner(System.in);
 		 System.out.println("Enter the floor number you want to go:");
-		 int de=in.nextInt();
+		 if(in.hasNextInt()){
+			 int de=in.nextInt(); 		 
 		 if(-1*building.getBasement()<=de && de<building.getFloor()){
 			 destination=de;
 			 System.out.println("---------------------------------");
+		 }
+		 else{
+			 System.out.println("Invalid floor number you Entered !!!");
+			 getDest();
+		 }
 		 }
 		 else{
 			 System.out.println("Invalid floor number you Entered !!!");
@@ -58,5 +72,6 @@ public class ElevatorPanel {
 		return destination;
 		 
 	 }
+	
 	 
 }
